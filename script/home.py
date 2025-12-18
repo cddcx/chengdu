@@ -12,8 +12,8 @@ import sys
 # 配置常量
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
 sourceChengduMulticast = "https://epg.51zmt.top:8001/sctvmulticast.html"
-homeLanAddress = "http://192.168.20.40:5140"
-catchupBaseUrl = "http://192.168.20.40:5140"
+homeLanAddress = "http://192.168.8.3:5140"
+catchupBaseUrl = "http://192.168.8.3:5140"
 totalEPG = "https://epg.51zmt.top:8001/e.xml,https://epg.112114.xyz/pp.xml"
 
 # 分组配置
