@@ -33,13 +33,10 @@ jobs:
         run: |
           python3 ./script/home.py
 
-      - name: 整理文件
+      - name: Commit
         run: |
-          mkdir -p dcx
-          mv home/*.m3u8 dcx/
-          
-      - name: 上传软件
-        uses: actions/upload-artifact@main
-        with:
-          name: "iptv-${{ env.version }}"
-          path: ${{ github.workspace }}/dcx
+          git config --global user.name 'heifeng'
+          git config --global user.email '0987363@github.com'
+          git add .
+          git commit -am "Automated build"
+          git push
