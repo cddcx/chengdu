@@ -4,9 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +31,17 @@ jobs:
         run: |
           python3 ./script/home.py
 
-      - name: Commit
+      - name: Check file sizes
         run: |
-          git config --global user.name 'heifeng'
-          git config --global user.email 'CDDCX@github.com'
-          git add .
-          git commit -am "Automated build"
-          git push
+          ls -lh home/iptv.m3u8
+
+      - name: 整理文件
+        run: |
+          mkdir -p dcx
+          mv home/iptv.m3u8 dcx/
+          
+      - name: 上传软件
+        uses: actions/upload-artifact@main
+        with:
+          name: "iptv.m3u8"
+          path: ${{ github.workspace }}/dcx
