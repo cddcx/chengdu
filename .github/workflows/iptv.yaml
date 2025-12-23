@@ -36,17 +36,9 @@ jobs:
         run: |
           python3 ./script/home.py
 
-      - name: Check file sizes
-        run: |
-          ls -lh home/iptv.m3u8
-
-      - name: 整理文件
-        run: |
-          mkdir -p dcx
-          mv home/*.m3u8 dcx/
           
       - name: 上传软件
         uses: actions/upload-artifact@main
         with:
           name: "cd-${{ env.LATEST_TAG }}"
-          path: ${{ github.workspace }}/dcx
+          path: ${{ github.workspace }}/home
