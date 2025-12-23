@@ -14,7 +14,7 @@ sourceIcon51ZMT = "https://epg.51zmt.top:8001"
 sourceChengduMulticast = "https://epg.51zmt.top:8001/sctvmulticast.html"
 homeLanAddress = "http://192.168.8.3:5140"
 catchupBaseUrl = "http://192.168.8.3:5140"
-totalEPG = "https://epg.51zmt.top:8001/e.xml,https://epg.112114.xyz/pp.xml"
+totalEPG = "https://myepg.org/EPG/112114/pp.xml.gz"
 
 # 分组配置
 groupCCTV = ["CCTV", "CETV", "CGTN"]
