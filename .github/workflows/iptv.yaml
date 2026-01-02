@@ -37,8 +37,8 @@ jobs:
           
       - name: Commit
         run: |
-          git config --global user.name 'dianxin'
-          git config --global user.email 'cddcx@github.com'
+          git config --global user.name 'cddcx'
+          git config --global user.email '757666614@qq.com'
           git add .
           git commit -am "Automated build"
           git push
