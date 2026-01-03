@@ -1,10 +1,7 @@
 name: chengdu iptv build
 
 on:
-  push:
-    branches: [ master ]
-  schedule:
-    - cron: "2 4 * * 1"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,7 +11,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          repository: 'cddcx/chengdu'
 
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
@@ -36,16 +32,8 @@ jobs:
           python3 ./script/home.py
           echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
           
-      - name: Commit
-        run: |
-          git config --global user.name 'cddcx'
-          git config --global user.email '757666614@qq.com'
-          git add .
-          git commit -am "Automated build"
-          git push
-          
-      #- name: 上传软件
-        #uses: actions/upload-artifact@main
-        #with:
-          #name: "cd-iptv${{ env.FILE_DATE }}"
-          #path: ${{ github.workspace }}/home
+      - name: 上传软件
+        uses: actions/upload-artifact@main
+        with:
+          name: "cd-iptv${{ env.FILE_DATE }}"
+          path: ${{ github.workspace }}/home
