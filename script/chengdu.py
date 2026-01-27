@@ -97,7 +97,7 @@ for c in m:
 
 file=open("./m3u8/chengdu.m3u8", "w")
 name = '成都电信IPTV - ' + strict_rfc3339.now_to_rfc3339_utcoffset()
-title = '#EXTM3U name=\"' + name + '\"' + ' url-tvg=\"http://epg.51zmt.top:8000/e.xml.gz,https://epg.112114.xyz/pp.xml.gz\"\n\n'
+title = '#EXTM3U name=\"' + name + '\"' + ' url-tvg=\"http://epg.51zmt.top:8000/e.xml,https://epg.112114.xyz/pp.xml\"\n\n'
 file.write(title)
 
 for c in m:
