@@ -11,7 +11,7 @@ import sys
 
 # 配置常量
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
-sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast/"
+sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast.html"
 homeLanAddress = "http://192.168.8.3:5140"
 catchupBaseUrl = "http://192.168.8.3:5140"
 totalEPG = "https://myepg.org/EPG/112114/pp.xml.gz"
