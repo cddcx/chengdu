@@ -33,7 +33,7 @@ jobs:
 
       - name: Build home
         run: |
-          python3 ./script/chengdu.py
+          python3 ./script/home.py
           echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
           
       - name: Commit
