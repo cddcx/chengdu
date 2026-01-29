@@ -91,7 +91,7 @@ def buildCatchupSource(rtsp_url, original_url):
     rtsp_path = url_without_protocol[path_start:]  # 获取路径部分，如 /PLTV/...smil
 
     # 构建完整的回看源URL，使用动态提取的主机地址
-    catchup_source = f"{catchupBaseUrl}/rtsp/{rtsp_host}{rtsp_path}?playseek=${{(b)yyyyMMddHHmmss}}-${{(e)yyyyMMddHHmmss}}"
+    catchup_source = f"{rtsp://{rtsp_host}{rtsp_path}?playseek=${{(b)yyyyMMddHHmmss}}-${{(e)yyyyMMddHHmmss}}"
 
     return catchup_source
 
