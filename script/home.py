@@ -11,9 +11,9 @@ import sys
 
 # 配置常量
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
-sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast/"
-homeLanAddress = "http://192.168.8.3:5140"
-catchupBaseUrl = "http://192.168.8.3:5140"
+sourceChengduMulticast = "https://epg.51zmt.top:8001/sctvmulticast.html"
+homeLanAddress = "http://192.168.20.40:5140"
+catchupBaseUrl = "http://192.168.20.40:5140"
 totalEPG = "http://192.168.8.8:5678/index.php"
 
 # 分组配置
@@ -91,7 +91,7 @@ def buildCatchupSource(rtsp_url, original_url):
     rtsp_path = url_without_protocol[path_start:]  # 获取路径部分，如 /PLTV/...smil
 
     # 构建完整的回看源URL，使用动态提取的主机地址
-    catchup_source = f"rtsp://{rtsp_host}{rtsp_path}?playseek=${{(b)yyyyMMddHHmmss}}-${{(e)yyyyMMddHHmmss}}"
+    catchup_source = f"{catchupBaseUrl}/rtsp/{rtsp_host}{rtsp_path}?playseek=${{(b)yyyyMMddHHmmss}}-${{(e)yyyyMMddHHmmss}}"
 
     return catchup_source
 
@@ -163,7 +163,7 @@ def generateM3U8(file):
                     line = (f'#EXTINF:-1 tvg-logo="{c["icon"]}" tvg-id="{c["id"]}" '
                            f'tvg-name="{c["name"]}" group-title="{k}" '
                            f'catchup="default" catchup-source="{catchup_source}",{c["name"]}\n')
-                    line2 = f'rtp://{c["address"]}?FCC=182.139.234.40:8027\n'
+                    line2 = f'{homeLanAddress}/rtp/{c["address"]}?FCC=182.139.234.40:8027\n'
 
                     f.write(line)
                     f.write(line2)
