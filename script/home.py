@@ -11,7 +11,7 @@ import sys
 
 # 配置常量
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
-sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast/"
+sourceChengduMulticast = "http://192.168.8.8:5000/"
 homeLanAddress = "http://192.168.20.40:5140"
 catchupBaseUrl = "http://192.168.20.40:5140"
 totalEPG = "http://192.168.8.8:5678/index.php"
@@ -78,11 +78,11 @@ def buildCatchupSource(rtsp_url, original_url):
     提取主机: 182.139.235.40
     提取路径: /PLTV/88888896/224/3221228807/10000100000000060000000003732597_0.smil
     """
-    if not rtsp_url or not rtsp_url.startswith("rtsp://"):
+    if not rtsp_url or not rtsp_url.startswith("rtsp/"):
         return ""
 
     # 从rtsp URL中提取主机地址和路径部分
-    url_without_protocol = rtsp_url[7:]  # 移除 "rtsp://"
+    url_without_protocol = rtsp_url[5:]  # 移除 "rtsp://"
     path_start = url_without_protocol.find("/")
     if path_start == -1:
         return ""
