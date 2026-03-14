@@ -8,9 +8,6 @@ from datetime import datetime
 import re
 import sys
 
-# 获取中国时区
-china_tz = pytz.timezone('Asia/Shanghai')
-
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
 sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast/api/channels/1/"
 homeLanAddress = "http://192.168.3.3:5140"
