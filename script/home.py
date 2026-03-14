@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pytz,os
 import requests
-import json
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urljoin
 from datetime import datetime
-import fill_m3u8, fill_erw_epg
+import re
+import sys
 
 # 获取中国时区
 china_tz = pytz.timezone('Asia/Shanghai')
@@ -15,6 +14,8 @@ china_tz = pytz.timezone('Asia/Shanghai')
 sourceIcon51ZMT = "https://epg.51zmt.top:8001"
 sourceChengduMulticast = "https://epg.51zmt.top:8001/multicast/api/channels/1/"
 homeLanAddress = "http://192.168.3.3:5140"
+catchupBaseUrl = "http://192.168.3.3:5140"
+totalEPG = "https://epg.51zmt.top:8001/e.xml,https://epg.112114.xyz/pp.xml"
 
 # groupCCTV=["CCTV", "CETV", "CGTN"]
 groupCCTV = ["CCTV"]
